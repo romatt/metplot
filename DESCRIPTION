@@ -1,0 +1,22 @@
+Package: metplot
+Type: Package
+Title: Plotting of meteorological data
+Version: 0.1.0
+Author: Roman Attinger
+Maintainer: Roman Attinger <roman.attinger@env.ethz.ch>
+Description: This package provides various plotting routines for quick and easy
+    plotting of meteorological data from numerical weather prediction and climate models.
+    Besides regular lat-lon maps it is also possible to plot time-series of
+    meteorological data and much more :)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2,
+    raster,
+    ncdf4
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
