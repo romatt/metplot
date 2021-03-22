@@ -1,4 +1,4 @@
-#' Function to test rough equality
+#' Test rough equality
 #'
 #' @param values close are any number of floating values to testval
 #' @param testval value to be tested
