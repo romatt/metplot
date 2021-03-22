@@ -8,21 +8,16 @@
 #' @export
 #'
 #' @examples
-#' 0.011%==0.01 is TRUE
+#' c(0.01,0.02,0.011)%==%0.01 equals TRUE FALSE  TRUE
 
 "%==%" <- function(values,testval,epsilon=0.01) {
 
-  # Return vector with true / false
-  out<-c()
-
-  # Go over arbitrary number of values
-  for (v in values) {
-    if(v+epsilon>testval && v-epsilon<testval) {
-      out=append(out,TRUE)
+  out<-sapply(values, function(v) {
+    if (v+epsilon>testval && v-epsilon<testval){
+      return(TRUE)
     } else {
-      out=append(out,FALSE)
-    }
-  }
+      return(FALSE)
+    }})
 
   return(out)
 
