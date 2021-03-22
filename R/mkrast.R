@@ -22,7 +22,6 @@ mkrast <- function(field,
                    dellon=1,
                    dellat=1,
                    crsstring="+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0",
-                   navals=-999,
                    ...) {
 
   # Check if lons and lats are provided, if so base lonmin/max, latmin/max, dellon/lat on those arrays
@@ -71,9 +70,6 @@ mkrast <- function(field,
   } else {
     cat("ERROR: INPUT FIELD HAS UNKNOWN NUMBER OF DIMENSIONS")
   }
-
-  # Set NA values
-  raster::NAvalue(r) <- navals
 
   return(r)
 }
