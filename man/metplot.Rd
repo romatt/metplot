@@ -7,7 +7,7 @@
 metplot(field, lonmin, lonmax, latmin, latmax, level)
 }
 \arguments{
-\item{field}{which field should be plottet}
+\item{field}{which field should be plotted}
 
 \item{lonmin}{minimum longitude}
 
@@ -26,5 +26,5 @@ plot
 metplot
 }
 \examples{
-metplot("/home/atroman/phd/file.nc",1)
+metplot(SLP,-180,180,-90,90,1)
 }

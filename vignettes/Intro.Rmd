@@ -14,7 +14,24 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Examples
+
+Reading NetCDF file and unpacking multiple variables
+
 ```{r setup}
 library(metplot)
+library(zeallot)
+c(SLP,OMEGA)%<-%rfile("/net/thermo/atmosdyn2/atroman/phd/DEC17/cdf/P20171221_04","SLP","OMEGA")
 ```
-This is a lovely description of my first ever R-Package :)
+
+# Features to be implemented
+
+* Horizontal maps
+  + specify plotting country instead of lon & lat
+  + ability to change projections
+* Overlays
+  + Contours
+  + Vectors
+  + Trajectories
+* Cross-section
+* Time series

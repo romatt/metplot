@@ -11,7 +11,7 @@ rfile(file, field, ...)
 
 \item{field}{character string specifying the field to be read}
 
-\item{...}{arbitrary number of additional character strings specifying additional fields to be read}
+\item{...}{arbitrary number of character strings specifying additional fields to be read}
 }
 \value{
 
@@ -20,5 +20,6 @@ rfile(file, field, ...)
 Read NetCDF File
 }
 \examples{
-readfile("/net/server/folder/somefile.nc","SLP","OMEGA")
+library(zeallot) # Need this to unpack data from rfile
+c(APVTURBT)\%<-\%rfile("/net/thermo/atmosdyn2/atroman/stingjet/20140211_12/tra/APV12_20140212_07.nc","APVTURBT")
 }
