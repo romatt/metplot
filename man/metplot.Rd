@@ -4,7 +4,15 @@
 \alias{metplot}
 \title{metplot}
 \usage{
-metplot(field, lonmin, lonmax, latmin, latmax, level)
+metplot(
+  field,
+  lonmin = -180,
+  lonmax = 180,
+  latmin = 0,
+  latmax = 90,
+  level,
+  ...
+)
 }
 \arguments{
 \item{field}{which field should be plotted}

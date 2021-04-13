@@ -16,7 +16,8 @@ Imports:
     raster,
     ncdf4,
     rnaturalearth,
-    ggspatial
+    ggspatial,
+    smoothr
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

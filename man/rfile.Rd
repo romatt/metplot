@@ -4,7 +4,7 @@
 \alias{rfile}
 \title{Read NetCDF File}
 \usage{
-rfile(file, field, ...)
+rfile(file, field, ..., navals = -999)
 }
 \arguments{
 \item{file}{character string specifying the NetCDF file location}
@@ -12,6 +12,8 @@ rfile(file, field, ...)
 \item{field}{character string specifying the field to be read}
 
 \item{...}{arbitrary number of character strings specifying additional fields to be read}
+
+\item{navals}{float specifying NA values}
 }
 \value{
 
