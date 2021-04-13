@@ -4,16 +4,45 @@
 \alias{rfile}
 \title{Read NetCDF File}
 \usage{
-rfile(file, field, ..., navals = -999)
+rfile(
+  file,
+  field,
+  ...,
+  navals = NA,
+  lonmin = NA,
+  lonmax = NA,
+  latmin = NA,
+  latmax = NA,
+  zstart = 1,
+  zcount = -1,
+  tstart = 1,
+  tcount = -1
+)
 }
 \arguments{
-\item{file}{character string specifying the NetCDF file location}
+\item{file}{A character string specifying the NetCDF file location}
 
-\item{field}{character string specifying the field to be read}
+\item{field}{A character string specifying the field to be read}
 
-\item{...}{arbitrary number of character strings specifying additional fields to be read}
+\item{...}{An arbitrary number of character strings specifying additional fields to be read}
 
-\item{navals}{float specifying NA values}
+\item{navals}{A float specifying NA values}
+
+\item{lonmin}{A float specifying longitude to start reading (optional)}
+
+\item{lonmax}{A float specifying longitude to stop reading (optional)}
+
+\item{latmin}{A float specifying latitude to start reading (optional)}
+
+\item{latmax}{A float specifying latitude to stop reading (optional)}
+
+\item{zstart}{An integer specifying first level to read (default: 1)}
+
+\item{zcount}{An integer specifying number of levels to read (default: -1)}
+
+\item{tstart}{An integer specifying first time-steps to read (default: 1)}
+
+\item{tcount}{An integer specifying number of time-steps to read (default: -1)}
 }
 \value{
 
