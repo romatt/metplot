@@ -52,5 +52,10 @@ Read NetCDF File
 }
 \examples{
 library(zeallot) # Need this to unpack data from rfile
-c(APVTURBT)\%<-\%rfile("/net/thermo/atmosdyn2/atroman/stingjet/20140211_12/tra/APV12_20140212_07.nc","APVTURBT")
+
+# Read an entire field
+c(lons, lats, APVTURBT)\%<-\%rfile("/net/thermo/atmosdyn2/atroman/stingjet/20140211_12/tra/APV12_20140212_07.nc","APVTURBT")
+
+# Only read a specific subset of field
+c(lons,lats,PV)\%<-\%rfile("/net/thermo/atmosdyn/atroman/phd/MAR18/cdf/S20180302_21","PV",lonmin=-60,lonmax=-20,latmin=46,latmax=86,zstart=2,zcount=2)
 }
