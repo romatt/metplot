@@ -35,25 +35,9 @@ rfile <-function(file,field,...,navals=NA,lonmin=NA,lonmax=NA,latmin=NA,latmax=N
     # Open NetCDF file
     ncin <- ncdf4::nc_open(file)
 
-    # Try to read longitude and latitude from
-    longitudes <- tryCatch(
-      {
-        ncdf4::ncvar_get(ncin,"lon") # Get longitudes
-      },
-      error=function(cond) {
-        message("ERROR: Longitudes not found on file!")
-        message(cond)
-        return(NA)
-      })
-    latitudes <- tryCatch(
-      {
-        ncdf4::ncvar_get(ncin,"lat") # Get latitudes
-      },
-      error=function(cond) {
-        message("ERROR: Latitudes not found on file!")
-        message(cond)
-        return(NA)
-      })
+    # Read dimensions
+    longitudes <- ncin$dim[[1]]$vals
+    latitudes <- ncin$dim[[2]]$vals
 
     # Check if subset should be read
     if(!is.na(lonmin) & !is.na(lonmax) & !is.na(latmin) & !is.na(latmax)) {
@@ -92,13 +76,13 @@ rfile <-function(file,field,...,navals=NA,lonmin=NA,lonmax=NA,latmin=NA,latmax=N
     if(!is.na(navals)) tmp[tmp%==%navals]<-NA # Set NA values if required
     out[[3]]<-tmp # Add field to list
 
-    # i=4
-    # for(addfield in list(...)) {
-    #   tmp<-ncdf4::ncvar_get(ncin,addfield,start=c(lonstart,latstart,zstart,tstart),count=c(loncount,latcount,zcount,tcount)) # Read additional field
-    #   if(!is.na(navals)) tmp[tmp%==%navals]<-NA # Set NA values if required
-    #   out[[i]]<-tmp # Add field to list
-    #   i=i+1 # Increment additional field counter
-    # }
+    i=4
+    for(addfield in list(...)) {
+      tmp<-ncdf4::ncvar_get(ncin,addfield,start=c(lonstart,latstart,zstart,tstart),count=c(loncount,latcount,zcount,tcount)) # Read additional field
+      if(!is.na(navals)) tmp[tmp%==%navals]<-NA # Set NA values if required
+      out[[i]]<-tmp # Add field to list
+      i=i+1 # Increment additional field counter
+    }
 
     ncdf4::nc_close(ncin)
 
