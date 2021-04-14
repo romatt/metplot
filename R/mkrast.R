@@ -1,18 +1,21 @@
 #' Make raster from field
 #'
 #' @param field this is the field...
-#' @param lonmin
-#' @param lonmax
-#' @param latmin
-#' @param latmax
-#' @param dellon
-#' @param dellat
+#' @param lonmin A float specifying min longitude
+#' @param lonmax A float specifying max longitude
+#' @param latmin A float specifying min latitude
+#' @param latmax A float specifying max latitude
+#' @param dellon A float specifying the delta longitude
+#' @param dellat A float specifying the delta latitude
+#' @param crsstring A string specifying the projection to be used
+#' @param lons A vector of longitudes
+#' @param lats A vector of latitudes
 #'
 #' @return
 #' @export
 #'
 #' @examples
-#' mkrast(FIELD)
+#' PVr <- mkrast(PV,lons=lons,lats=lats)
 
 mkrast <- function(field,
                    lonmin=-180,
@@ -22,10 +25,12 @@ mkrast <- function(field,
                    dellon=1,
                    dellat=1,
                    crsstring="+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0",
-                   ...) {
+                   lons=NA,
+                   lats=NA) {
 
-  # Check if lons and lats are provided, if so base lonmin/max, latmin/max, dellon/lat on those arrays
-  if(exists("lons") && exists("lats")) {
+  # Check if longitudes and latitudes are provided
+  # If so, base lonmin/max, latmin/max, dellon/lat on those arrays
+  if(!is.na(lons) && !is.na(lats)) {
     lonmin=lons[1]
     lonmax=lons[length(lons)]
     latmin=lats[1]

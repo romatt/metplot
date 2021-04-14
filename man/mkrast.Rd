@@ -13,13 +13,30 @@ mkrast(
   dellon = 1,
   dellat = 1,
   crsstring = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0",
-  ...
+  lons = NA,
+  lats = NA
 )
 }
 \arguments{
 \item{field}{this is the field...}
 
-\item{dellat}{}
+\item{lonmin}{A float specifying min longitude}
+
+\item{lonmax}{A float specifying max longitude}
+
+\item{latmin}{A float specifying min latitude}
+
+\item{latmax}{A float specifying max latitude}
+
+\item{dellon}{A float specifying the delta longitude}
+
+\item{dellat}{A float specifying the delta latitude}
+
+\item{crsstring}{A string specifying the projection to be used}
+
+\item{lons}{A vector of longitudes}
+
+\item{lats}{A vector of latitudes}
 }
 \value{
 
@@ -28,5 +45,5 @@ mkrast(
 Make raster from field
 }
 \examples{
-mkrast(FIELD)
+PVr <- mkrast(PV,lons=lons,lats=lats)
 }
