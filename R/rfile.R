@@ -60,8 +60,8 @@ rfile <-function(file,field,...,navals=NA,lonmin=NA,lonmax=NA,latmin=NA,latmax=N
       if(length(latend)==0) warning(paste("ERROR: Latitude ",latmax," not a subset of latitudes!",sep=""))
 
       # Calculate number of requested grid-points
-      loncount<-lonend-lonstart
-      latcount<-latend-latstart
+      loncount<-lonend-lonstart+1
+      latcount<-latend-latstart+1
 
       # Redefine longitude and latitude vectors
       longitudes<-longitudes[lonstart:lonend]
