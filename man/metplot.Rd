@@ -4,28 +4,24 @@
 \alias{metplot}
 \title{metplot}
 \usage{
-metplot(
-  field,
-  lonmin = -180,
-  lonmax = 180,
-  latmin = 0,
-  latmax = 90,
-  level,
-  ...
-)
+metplot(field, lons, lats, pbmin, pbmax, pbby, zeroinmid, guide.title, ...)
 }
 \arguments{
-\item{field}{which field should be plotted}
+\item{field}{field to be plotted}
 
-\item{lonmin}{minimum longitude}
+\item{lons}{vector of longitudes}
 
-\item{lonmax}{max lon}
+\item{lats}{vector of latitudes}
 
-\item{latmin}{min lat}
+\item{pbmin}{minimum plotting level}
 
-\item{latmax}{max lat}
+\item{pbmax}{maximum plotting level}
 
-\item{level}{model level}
+\item{pbby}{delta plotting level}
+
+\item{zeroinmid}{should center be white?}
+
+\item{guide.title}{guide title}
 }
 \value{
 plot
@@ -34,5 +30,5 @@ plot
 metplot
 }
 \examples{
-metplot(SLP,-180,180,-90,90,1)
+metplot(APVTOT,lons=lons,lats=lats,pbmin=-40,pbmax=40,pbby=5,zeroinmid=F,guide.title="APV (PVU)")
 }
