@@ -41,8 +41,19 @@ rfile <-function(file,field,...,navals=NA,lonmin=NA,lonmax=NA,latmin=NA,latmax=N
     ncin <- ncdf4::nc_open(file)
 
     # Read dimensions
-    longitudes <- ncin$dim[[1]]$vals
-    latitudes <- ncin$dim[[2]]$vals
+
+    # Get number of dimension on file
+    ndim=length(ncin$dim)
+
+    # Search for longitude and latitude dimension
+    for(d in 1:ndim) {
+      dname=ncin$dim[[d]]$name
+      if(dname=="lon" | dname=="longitude") {
+        longitudes <- ncin$dim[[d]]$vals
+      } else if (dname=="lat" | dname=="latitude") {
+        latitudes <- ncin$dim[[d]]$vals
+      }
+    }
 
     # Check if subset should be read
     if(!is.na(lonmin) & !is.na(lonmax) & !is.na(latmin) & !is.na(latmax)) {
