@@ -60,7 +60,8 @@ mkrast <- function(field,
     }
 
     # Generate brick from multilayer data
-    r <- raster::brick(ftrans, xmn=lonmin-(dellon/2), xmx=lonmax+(dellon/2), ymn=latmin-(dellat/2), ymx=latmax+(dellat/2), crs=raster::crs(crsstring))
+    #r <- raster::brick(ftrans, xmn=lonmin-(dellon/2), xmx=lonmax+(dellon/2), ymn=latmin-(dellat/2), ymx=latmax+(dellat/2), crs=raster::crs(crsstring))
+    r <- raster::brick(ftrans, xmn=lonmin, xmx=lonmax, ymn=latmin, ymx=latmax, crs=raster::crs(crsstring))
 
   } else if(length(dim(field))==2) {
 
@@ -68,7 +69,8 @@ mkrast <- function(field,
     ftrans <- apply(t(field), 2, rev)
 
     # Generate the raster
-    r <- raster::raster(xmn=lonmin-(dellon/2), xmx=lonmax+(dellon/2), ymn=latmin-(dellat/2), ymx=latmax+(dellat/2), resolution=c(dellon,dellat),crs=raster::crs(crsstring))
+    #r <- raster::raster(xmn=lonmin-(dellon/2), xmx=lonmax+(dellon/2), ymn=latmin-(dellat/2), ymx=latmax+(dellat/2), resolution=c(dellon,dellat),crs=raster::crs(crsstring))
+    r <- raster::raster(xmn=lonmin, xmx=lonmax, ymn=latmin, ymx=latmax, resolution=c(dellon,dellat),crs=raster::crs(crsstring))
 
     # Write field to raster
     r <- raster::setValues(r, ftrans)
