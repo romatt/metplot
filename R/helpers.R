@@ -14,3 +14,8 @@
 #
 # to set up a new vignette, run
 # use_vignette("Intro")
+
+# Load dataset
+# APVTURBT<-rfile("/net/thermo/atmosdyn2/atroman/stingjet/20140211_12/tra/APV12_20140212_07.nc","APVTURBT")
+# metplot(APVTURBT,-180,180,0,90,1)
+#

@@ -18,7 +18,7 @@ mkrast(
 )
 }
 \arguments{
-\item{field}{this is the field...}
+\item{field}{A matrix or array of the field to be converted into a raster object}
 
 \item{lonmin}{A float specifying min longitude}
 
