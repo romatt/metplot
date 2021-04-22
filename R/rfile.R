@@ -48,9 +48,9 @@ rfile <-function(file,field,...,navals=NA,lonmin=NA,lonmax=NA,latmin=NA,latmax=N
     # Search for longitude and latitude dimension
     for(d in 1:ndim) {
       dname=ncin$dim[[d]]$name
-      if(dname=="lon" | dname=="longitude") {
+      if(dname=="lon" | dname=="longitude" | grepl("dimz", dname, fixed = TRUE)) {
         longitudes <- ncin$dim[[d]]$vals
-      } else if (dname=="lat" | dname=="latitude") {
+      } else if (dname=="lat" | dname=="latitude" | grepl("dimy", dname, fixed = TRUE)) {
         latitudes <- ncin$dim[[d]]$vals
       }
     }
