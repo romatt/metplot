@@ -65,10 +65,10 @@ rfile <-function(file,field,...,navals=NA,lonmin=NA,lonmax=NA,latmin=NA,latmax=N
       latend<-which(latitudes%==%latmax)
 
       # Error handling
-      if(length(lonstart)==0) warning(paste("ERROR: Latitude ",lonmin," not a subset of longitudes!",sep=""))
-      if(length(lonend)==0) warning(paste("ERROR: Latitude ",lonmax," not a subset of longitudes!",sep=""))
-      if(length(latstart)==0) warning(paste("ERROR: Latitude ",latmin," not a subset of latitudes!",sep=""))
-      if(length(latend)==0) warning(paste("ERROR: Latitude ",latmax," not a subset of latitudes!",sep=""))
+      if(length(lonstart)==0) warning(paste0("ERROR: Latitude ",lonmin," not a subset of longitudes!"))
+      if(length(lonend)==0) warning(paste0("ERROR: Latitude ",lonmax," not a subset of longitudes!"))
+      if(length(latstart)==0) warning(paste0("ERROR: Latitude ",latmin," not a subset of latitudes!"))
+      if(length(latend)==0) warning(paste0("ERROR: Latitude ",latmax," not a subset of latitudes!"))
 
       # Calculate number of requested grid-points
       loncount<-lonend-lonstart+1
